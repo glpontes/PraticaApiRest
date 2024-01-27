@@ -1,5 +1,6 @@
-package br.com.glpontes.PraticaApiRest;
+package br.com.glpontes.PraticaApiRest.controller;
 
+import br.com.glpontes.PraticaApiRest.exceptions.UnsupportedMathOperationException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,7 +18,7 @@ public class MathController {
         ) throws Exception{
 
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new Exception();
+            throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
         return converToDouble(numberOne) + converToDouble(numberTwo);
 
